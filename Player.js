@@ -1,5 +1,4 @@
 export default class Player{
-
     rightPressed = false;
     leftPressed = false;
     shootPressed = false;
@@ -19,7 +18,6 @@ export default class Player{
         document.addEventListener("keydown", this.keydown);
         document.addEventListener("keyup", this.keyup);
     }
-
     draw(ctx){
         if(this.shootPressed){
             this.bulletController.shoot(this.x + this.width / 2, this.y, 4, 10);
@@ -28,7 +26,6 @@ export default class Player{
         this.collideWithWall();
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
     }
-
     collideWithWall(){
         // left
         if(this.x < 0){
@@ -39,7 +36,6 @@ export default class Player{
             this.x = this.canvas.width - this.width;
         }
     }
-
     move(){
         if(this.rightPressed){
             this.x += this.velocity;
@@ -48,7 +44,6 @@ export default class Player{
             this.x += -this.velocity;
         }
     }
-
     keydown = event =>{
         if(event.code == 'ArrowRight'){
             this.rightPressed = true;
@@ -60,7 +55,6 @@ export default class Player{
             this.shootPressed = true;
         }
     }
-
     keyup = event =>{
         if(event.code == 'ArrowRight'){
             this.rightPressed = false;

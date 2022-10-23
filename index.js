@@ -16,8 +16,7 @@ const enemyBulletController = new BulletController(canvas, 4, "white", false);
 const enemyController = new EnemyController(canvas, enemyBulletController, playerBulletController);
 const player = new Player(canvas, 3, playerBulletController);
 
-let isGameOver = false;
-let didwin = false;
+let isGameOver, didwin = false;
 let GameWin = new Audio("sounds/gamewin.wav");
 GameWin.volume = 1;
 let GameLose = new Audio("sounds/gameover.wav");
@@ -63,6 +62,7 @@ function checkGameOver(){
         GameLose.currentTime = 0;
         GameLose.play();
     }
+    // 確認敵人數量
     if(enemyController.enemyRows.length === 0){
         didwin = true;
         isGameOver = true;
